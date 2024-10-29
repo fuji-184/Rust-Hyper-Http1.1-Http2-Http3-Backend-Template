@@ -1,0 +1,24 @@
+[package]
+name = "http123"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hyper = { version = "1", features = ["full"] }
+tokio = { version = "1", features = ["full"] }
+bytes = "1"
+http = "1"
+hyper-util = { version = "0.1.10", features = ["tokio", "server", "http1", "http2"] }
+rustls = { version="*", features=["ring", "aws-lc-rs"] }
+tokio-rustls = "*"
+rustls-pemfile = "2"
+http-body-util = "0.1"
+pki-types = { package = "rustls-pki-types", version = "1" }
+pretty_env_logger = "0.5"
+h3 = { version="*", features = ["tracing"] }
+h3-quinn = { version="*", features = ["tracing"] }
+quinn = { version = "0.11", default-features = false, features = [
+    "runtime-tokio",
+    "rustls",
+    "ring",
+] }
